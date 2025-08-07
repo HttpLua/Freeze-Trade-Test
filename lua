@@ -106,7 +106,7 @@ task.spawn(function()
 	Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 14)
 
 	local title = Instance.new("TextLabel", topBar)
-	title.Text = "Grow A Garden Freeze Trade"
+	title.Text = "🌿 Grow A Garden Freeze Trade"
 	title.Size = UDim2.new(1, -40, 1, 0)
 	title.Position = UDim2.new(0, 10, 0, 0)
 	title.BackgroundTransparency = 1
