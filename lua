@@ -27,10 +27,9 @@ loadingFrame.BorderSizePixel = 0
 loadingFrame.Parent = loadingGui
 Instance.new("UICorner", loadingFrame).CornerRadius = UDim.new(0, 14)
 
--- Top Bar (styled like Freeze Trade)
 local topBar = Instance.new("Frame", loadingFrame)
 topBar.Size = UDim2.new(1, 0, 0, 30)
-topBar.BackgroundColor3 = Color3.fromRGB(255, 105, 180)
+topBar.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- black-grey
 Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 14)
 
 local title = Instance.new("TextLabel", topBar)
@@ -43,7 +42,6 @@ title.Font = Enum.Font.GothamBold
 title.TextSize = 14
 title.TextXAlignment = Enum.TextXAlignment.Left
 
--- Loading Bar
 local barBackground = Instance.new("Frame", loadingFrame)
 barBackground.Size = UDim2.new(0.9, 0, 0, 16)
 barBackground.Position = UDim2.new(0.05, 0, 0.6, 0)
@@ -77,7 +75,6 @@ task.spawn(function()
 	end
 	loadingGui:Destroy()
 
-	-- ✅ After loading, show Freeze Trade UI
 	local gui = Instance.new("ScreenGui", PlayerGui)
 	gui.Name = "FreezeTradeUI"
 	gui.ResetOnSpawn = false
@@ -93,7 +90,7 @@ task.spawn(function()
 
 	local topBar = Instance.new("Frame", main)
 	topBar.Size = UDim2.new(1, 0, 0, 30)
-	topBar.BackgroundColor3 = Color3.fromRGB(255, 105, 180)
+	topBar.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- black-grey
 	Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 14)
 
 	local title = Instance.new("TextLabel", topBar)
@@ -118,7 +115,6 @@ task.spawn(function()
 		main.Visible = false
 	end)
 
-	-- 🟩 Title text (black) and hint (black, small)
 	local sectionLabel = Instance.new("TextLabel", main)
 	sectionLabel.Text = "Find Player to Freeze Trade"
 	sectionLabel.Size = UDim2.new(1, -20, 0, 20)
@@ -154,7 +150,7 @@ task.spawn(function()
 	searchBtn.Text = "Search"
 	searchBtn.Size = UDim2.new(0.3, 0, 0, 25)
 	searchBtn.Position = UDim2.new(0.65, 0, 0, 75)
-	searchBtn.BackgroundColor3 = Color3.fromRGB(255, 105, 180)
+	searchBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- black-grey
 	searchBtn.TextColor3 = Color3.new(1, 1, 1)
 	searchBtn.Font = Enum.Font.GothamBold
 	searchBtn.TextSize = 12
@@ -186,7 +182,7 @@ task.spawn(function()
 	freezeBtn.Text = "Freeze Trade OFF ❌"
 	freezeBtn.Size = UDim2.new(0.9, 0, 0, 32)
 	freezeBtn.Position = UDim2.new(0.05, 0, 1, -40)
-	freezeBtn.BackgroundColor3 = Color3.fromRGB(255, 105, 180)
+	freezeBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- black-grey
 	freezeBtn.TextColor3 = Color3.new(1, 1, 1)
 	freezeBtn.Font = Enum.Font.GothamBold
 	freezeBtn.TextSize = 14
