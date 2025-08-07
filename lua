@@ -22,14 +22,14 @@ local loadingFrame = Instance.new("Frame")
 loadingFrame.Size = UDim2.new(0, 300, 0, 140)
 loadingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 loadingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-loadingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+loadingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 loadingFrame.BorderSizePixel = 0
 loadingFrame.Parent = loadingGui
 Instance.new("UICorner", loadingFrame).CornerRadius = UDim.new(0, 14)
 
 local topBar = Instance.new("Frame", loadingFrame)
 topBar.Size = UDim2.new(1, 0, 0, 30)
-topBar.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- black-grey
+topBar.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 14)
 
 local title = Instance.new("TextLabel", topBar)
@@ -45,7 +45,7 @@ title.TextXAlignment = Enum.TextXAlignment.Left
 local barBackground = Instance.new("Frame", loadingFrame)
 barBackground.Size = UDim2.new(0.9, 0, 0, 16)
 barBackground.Position = UDim2.new(0.05, 0, 0.6, 0)
-barBackground.BackgroundColor3 = Color3.fromRGB(220, 220, 220)
+barBackground.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 Instance.new("UICorner", barBackground).CornerRadius = UDim.new(0, 8)
 
 local progressBar = Instance.new("Frame", barBackground)
@@ -60,7 +60,7 @@ countdownLabel.BackgroundTransparency = 1
 countdownLabel.Text = "Loading... 20"
 countdownLabel.Font = Enum.Font.Gotham
 countdownLabel.TextSize = 14
-countdownLabel.TextColor3 = Color3.fromRGB(60, 100, 60)
+countdownLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 
 local tween = TweenService:Create(progressBar, TweenInfo.new(20, Enum.EasingStyle.Linear), {
 	Size = UDim2.new(1, 0, 1, 0)
@@ -82,7 +82,7 @@ task.spawn(function()
 	local main = Instance.new("Frame", gui)
 	main.Size = UDim2.new(0, 210, 0, 230)
 	main.Position = UDim2.new(0.5, -105, 0.5, -115)
-	main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 	main.BorderSizePixel = 0
 	main.Active = true
 	main.Draggable = true
@@ -90,7 +90,7 @@ task.spawn(function()
 
 	local topBar = Instance.new("Frame", main)
 	topBar.Size = UDim2.new(1, 0, 0, 30)
-	topBar.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- black-grey
+	topBar.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 	Instance.new("UICorner", topBar).CornerRadius = UDim.new(0, 14)
 
 	local title = Instance.new("TextLabel", topBar)
@@ -120,7 +120,7 @@ task.spawn(function()
 	sectionLabel.Size = UDim2.new(1, -20, 0, 20)
 	sectionLabel.Position = UDim2.new(0, 10, 0, 35)
 	sectionLabel.BackgroundTransparency = 1
-	sectionLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+	sectionLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 	sectionLabel.Font = Enum.Font.GothamBold
 	sectionLabel.TextSize = 12
 	sectionLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -130,7 +130,7 @@ task.spawn(function()
 	hintLabel.Size = UDim2.new(1, -20, 0, 16)
 	hintLabel.Position = UDim2.new(0, 10, 0, 53)
 	hintLabel.BackgroundTransparency = 1
-	hintLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+	hintLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 	hintLabel.Font = Enum.Font.Gotham
 	hintLabel.TextSize = 10
 	hintLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -142,15 +142,15 @@ task.spawn(function()
 	usernameBox.Position = UDim2.new(0.05, 0, 0, 75)
 	usernameBox.Font = Enum.Font.Gotham
 	usernameBox.TextSize = 12
-	usernameBox.TextColor3 = Color3.new(0, 0, 0)
-	usernameBox.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+	usernameBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+	usernameBox.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 	Instance.new("UICorner", usernameBox).CornerRadius = UDim.new(0, 6)
 
 	local searchBtn = Instance.new("TextButton", main)
 	searchBtn.Text = "Search"
 	searchBtn.Size = UDim2.new(0.3, 0, 0, 25)
 	searchBtn.Position = UDim2.new(0.65, 0, 0, 75)
-	searchBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- black-grey
+	searchBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 	searchBtn.TextColor3 = Color3.new(1, 1, 1)
 	searchBtn.Font = Enum.Font.GothamBold
 	searchBtn.TextSize = 12
@@ -159,7 +159,7 @@ task.spawn(function()
 	local userFrame = Instance.new("Frame", main)
 	userFrame.Size = UDim2.new(0.9, 0, 0, 45)
 	userFrame.Position = UDim2.new(0.05, 0, 0, 110)
-	userFrame.BackgroundColor3 = Color3.fromRGB(255, 230, 240)
+	userFrame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 	Instance.new("UICorner", userFrame).CornerRadius = UDim.new(0, 8)
 	userFrame.Visible = false
 
@@ -173,7 +173,7 @@ task.spawn(function()
 	displayName.Size = UDim2.new(1, -45, 1, 0)
 	displayName.Position = UDim2.new(0, 45, 0, 0)
 	displayName.BackgroundTransparency = 1
-	displayName.TextColor3 = Color3.fromRGB(100, 0, 50)
+	displayName.TextColor3 = Color3.fromRGB(255, 255, 255)
 	displayName.Font = Enum.Font.GothamBold
 	displayName.TextSize = 12
 	displayName.TextXAlignment = Enum.TextXAlignment.Left
@@ -182,7 +182,7 @@ task.spawn(function()
 	freezeBtn.Text = "Freeze Trade OFF ❌"
 	freezeBtn.Size = UDim2.new(0.9, 0, 0, 32)
 	freezeBtn.Position = UDim2.new(0.05, 0, 1, -40)
-	freezeBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50) -- black-grey
+	freezeBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 	freezeBtn.TextColor3 = Color3.new(1, 1, 1)
 	freezeBtn.Font = Enum.Font.GothamBold
 	freezeBtn.TextSize = 14
