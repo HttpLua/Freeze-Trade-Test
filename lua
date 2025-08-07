@@ -27,6 +27,12 @@ loadingFrame.BorderSizePixel = 0
 loadingFrame.Parent = loadingGui
 Instance.new("UICorner", loadingFrame).CornerRadius = UDim.new(0, 14)
 
+-- 🟦 White Border sa Loading Frame
+local strokeLoading = Instance.new("UIStroke", loadingFrame)
+strokeLoading.Color = Color3.fromRGB(255, 255, 255)
+strokeLoading.Thickness = 1.5
+strokeLoading.Transparency = 0.3
+
 local topBar = Instance.new("Frame", loadingFrame)
 topBar.Size = UDim2.new(1, 0, 0, 30)
 topBar.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
@@ -87,6 +93,12 @@ task.spawn(function()
 	main.Active = true
 	main.Draggable = true
 	Instance.new("UICorner", main).CornerRadius = UDim.new(0, 14)
+
+	-- 🟦 White Border sa Main Frame
+	local stroke = Instance.new("UIStroke", main)
+	stroke.Color = Color3.fromRGB(255, 255, 255)
+	stroke.Thickness = 1.5
+	stroke.Transparency = 0.3
 
 	local topBar = Instance.new("Frame", main)
 	topBar.Size = UDim2.new(1, 0, 0, 30)
@@ -163,6 +175,12 @@ task.spawn(function()
 	Instance.new("UICorner", userFrame).CornerRadius = UDim.new(0, 8)
 	userFrame.Visible = false
 
+	-- 🟦 White Border sa User Frame
+	local strokeUser = Instance.new("UIStroke", userFrame)
+	strokeUser.Color = Color3.fromRGB(255, 255, 255)
+	strokeUser.Thickness = 1.2
+	strokeUser.Transparency = 0.3
+
 	local avatarImage = Instance.new("ImageLabel", userFrame)
 	avatarImage.Size = UDim2.new(0, 36, 0, 36)
 	avatarImage.Position = UDim2.new(0, 5, 0.5, -18)
@@ -188,7 +206,7 @@ task.spawn(function()
 	freezeBtn.TextSize = 14
 	Instance.new("UICorner", freezeBtn).CornerRadius = UDim.new(0, 10)
 
-	-- 🔍 Search Logic + Avatar
+	-- 🔍 Search Logic
 	local foundPlayer = nil
 	searchBtn.MouseButton1Click:Connect(function()
 		local nameQuery = usernameBox.Text:lower()
@@ -209,9 +227,18 @@ task.spawn(function()
 		end
 	end)
 
-	-- ❄️ Freeze Logic
+	-- ❄️ Freeze Logic + Animation
 	local isCooldown = false
 	local isFrozen = false
+
+	local function playFreezeAnimation()
+		local original = main.BackgroundColor3
+		local freezeTween = TweenService:Create(main, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(100, 100, 255)})
+		local revertTween = TweenService:Create(main, TweenInfo.new(0.2), {BackgroundColor3 = original})
+		freezeTween:Play()
+		freezeTween.Completed:Wait()
+		revertTween:Play()
+	end
 
 	freezeBtn.MouseButton1Click:Connect(function()
 		if isCooldown then return end
@@ -235,6 +262,7 @@ task.spawn(function()
 
 		isFrozen = not isFrozen
 		freezeBtn.Text = isFrozen and "Freeze Trade ON ✅" or "Freeze Trade OFF ❌"
+		playFreezeAnimation()
 		isCooldown = false
 	end)
 end)
