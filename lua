@@ -1,3 +1,5 @@
+-- ✅ Freeze Trade UI with Fullscreen Flash Animation
+
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local LocalPlayer = Players.LocalPlayer
@@ -27,7 +29,6 @@ loadingFrame.BorderSizePixel = 0
 loadingFrame.Parent = loadingGui
 Instance.new("UICorner", loadingFrame).CornerRadius = UDim.new(0, 14)
 
--- 🟦 White Border sa Loading Frame
 local strokeLoading = Instance.new("UIStroke", loadingFrame)
 strokeLoading.Color = Color3.fromRGB(255, 255, 255)
 strokeLoading.Thickness = 1.5
@@ -94,7 +95,6 @@ task.spawn(function()
 	main.Draggable = true
 	Instance.new("UICorner", main).CornerRadius = UDim.new(0, 14)
 
-	-- 🟦 White Border sa Main Frame
 	local stroke = Instance.new("UIStroke", main)
 	stroke.Color = Color3.fromRGB(255, 255, 255)
 	stroke.Thickness = 1.5
@@ -175,7 +175,6 @@ task.spawn(function()
 	Instance.new("UICorner", userFrame).CornerRadius = UDim.new(0, 8)
 	userFrame.Visible = false
 
-	-- 🟦 White Border sa User Frame
 	local strokeUser = Instance.new("UIStroke", userFrame)
 	strokeUser.Color = Color3.fromRGB(255, 255, 255)
 	strokeUser.Thickness = 1.2
@@ -206,7 +205,6 @@ task.spawn(function()
 	freezeBtn.TextSize = 14
 	Instance.new("UICorner", freezeBtn).CornerRadius = UDim.new(0, 10)
 
-	-- 🔍 Search Logic
 	local foundPlayer = nil
 	searchBtn.MouseButton1Click:Connect(function()
 		local nameQuery = usernameBox.Text:lower()
@@ -227,11 +225,36 @@ task.spawn(function()
 		end
 	end)
 
-	-- ❄️ Freeze Logic + Animation
 	local isCooldown = false
 	local isFrozen = false
 
 	local function playFreezeAnimation()
+		local flashGui = Instance.new("ScreenGui")
+		flashGui.IgnoreGuiInset = true
+		flashGui.ResetOnSpawn = false
+		flashGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		flashGui.Parent = PlayerGui
+
+		local flashFrame = Instance.new("Frame")
+		flashFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+		flashFrame.BackgroundTransparency = 1
+		flashFrame.Size = UDim2.new(1, 0, 1, 0)
+		flashFrame.Parent = flashGui
+
+		local fadeIn = TweenService:Create(flashFrame, TweenInfo.new(0.15), {
+			BackgroundTransparency = 0
+		})
+
+		local fadeOut = TweenService:Create(flashFrame, TweenInfo.new(0.3), {
+			BackgroundTransparency = 1
+		})
+
+		fadeIn:Play()
+		fadeIn.Completed:Wait()
+		fadeOut:Play()
+		fadeOut.Completed:Wait()
+		flashGui:Destroy()
+
 		local original = main.BackgroundColor3
 		local freezeTween = TweenService:Create(main, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(100, 100, 255)})
 		local revertTween = TweenService:Create(main, TweenInfo.new(0.2), {BackgroundColor3 = original})
