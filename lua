@@ -1,5 +1,3 @@
--- ✅ Freeze Trade UI with Fullscreen Flash Animation
-
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local LocalPlayer = Players.LocalPlayer
@@ -204,6 +202,17 @@ task.spawn(function()
 	freezeBtn.Font = Enum.Font.GothamBold
 	freezeBtn.TextSize = 14
 	Instance.new("UICorner", freezeBtn).CornerRadius = UDim.new(0, 10)
+
+	-- 📌 Added credit text above the button
+	local creditLabel = Instance.new("TextLabel", main)
+	creditLabel.Text = "made by MarkOnTop"
+	creditLabel.Size = UDim2.new(1, 0, 0, 14)
+	creditLabel.Position = UDim2.new(0, 0, 1, -58)
+	creditLabel.BackgroundTransparency = 1
+	creditLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+	creditLabel.Font = Enum.Font.Gotham
+	creditLabel.TextSize = 10
+	creditLabel.TextXAlignment = Enum.TextXAlignment.Center
 
 	local foundPlayer = nil
 	searchBtn.MouseButton1Click:Connect(function()
